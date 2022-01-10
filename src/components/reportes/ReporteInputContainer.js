@@ -49,7 +49,7 @@ function ReporteInputContainer() {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                             />
-                            <small className="form-text text-muted">Formato 2015-12-12</small>
+                            <small className="form-text text-muted">Formato 2015-12-23</small>
                         </div>
                         <div className="form-group">
                             <input type="file" name="file" onChange={changeHandler} />
