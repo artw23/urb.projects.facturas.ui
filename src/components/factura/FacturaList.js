@@ -26,6 +26,7 @@ class FacturaList extends React.Component {
               <th scope="col">Periodo</th>
               <th scope="col">pdf</th>
               <th scope="col">xml</th>
+              <th scope="col">recibos</th>
               <th scope="col">Errores</th>
             </tr>
           </thead>
@@ -44,13 +45,18 @@ class FacturaList extends React.Component {
                 <td>{todo.periodo}</td>
                 <td>
                   {todo.pdfFileId &&
-                    <a href={`${process.env.REACT_APP_BACKEND_URL}/api/file/${todo.pdfFileId}`} download={'${todo.claveCatastral}.pdf'}>pdf</a>
+                    <a href={`${process.env.REACT_APP_BACKEND_URL}/api/file/${todo.pdfFileId}`} download={`${todo.condominio}-${todo.numero}.pdf`}>pdf</a>
                   }
 
                 </td>
                 <td>
                   {todo.xmlfileId &&
-                    <a href={`${process.env.REACT_APP_BACKEND_URL}/api/file/${todo.xmlfileId}`} download={'${todo.claveCatastral}.xml'}>xml</a>
+                    <a href={`${process.env.REACT_APP_BACKEND_URL}/api/file/${todo.xmlfileId}`} download={`${todo.condominio}-${todo.numero}.xml`}>xml</a>
+                  }
+                </td>
+                <td>
+                  {todo.recepitFileId &&
+                    <a href={`${process.env.REACT_APP_BACKEND_URL}/api/file/${todo.recepitFileId}`} download={`RECIBO-${todo.condominio}-${todo.numero}.pdf`}>recibo</a>
                   }
                 </td>
                 <td>{todo.errores}</td>

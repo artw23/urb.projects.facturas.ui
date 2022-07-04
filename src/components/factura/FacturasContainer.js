@@ -16,6 +16,8 @@ class FacturasContainer extends React.Component {
 
     this.state.hrefLink = process.env.REACT_APP_BACKEND_URL + '/api/reports/' + id + '/download'
 
+    this.state.hrefLink2 = process.env.REACT_APP_BACKEND_URL + '/api/reports/' + id + '/reciepts'
+
     axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
     axios.get("/api/reports/" + localStorage.getItem('ID') + "/invoices?size=1000", {
@@ -60,8 +62,13 @@ class FacturasContainer extends React.Component {
             <div className="btn-toolbar mb-2 mb-md-0">
               <div className="btn-group me-2">
                 <button type="button" className="btn btn-sm btn-outline-secondary" onClick={this.runExport}>Run</button>
-                <a href={`${this.state.hrefLink}`} download="data.zip">
+                <a href={`${this.state.hrefLink}`} download="facturas-data.zip">
                   <button type="button" className="btn btn-sm btn-outline-secondary">Download</button>
+                </a>
+              </div>
+              <div className="btn-group me-2">
+                <a href={`${this.state.hrefLink2}`} download="recibos-data.zip">
+                  <button type="button" className="btn btn-sm btn-outline-secondary">Recibos</button>
                 </a>
               </div>
             </div>
