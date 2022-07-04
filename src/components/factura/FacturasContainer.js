@@ -14,11 +14,11 @@ class FacturasContainer extends React.Component {
   componentDidMount() {
     var id = localStorage.getItem('ID')
 
-    this.state.hrefLink = process.env.REACT_APP_BACKEND_URL + '/api/reporte/' + id + '/download'
+    this.state.hrefLink = process.env.REACT_APP_BACKEND_URL + '/api/reports/' + id + '/download'
 
     axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
-    axios.get("/api/factura/" + localStorage.getItem('ID') + "?size=1000", {
+    axios.get("/api/reports/" + localStorage.getItem('ID') + "/invoices?size=1000", {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -38,7 +38,7 @@ class FacturasContainer extends React.Component {
 
     var id = localStorage.getItem('ID')
 
-    axios.post("/api/reporte/" + localStorage.getItem('ID') + "/run", {
+    axios.post("/api/reports/" + localStorage.getItem('ID') + "/process", {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },

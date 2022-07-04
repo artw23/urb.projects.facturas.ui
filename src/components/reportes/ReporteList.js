@@ -19,6 +19,7 @@ class ReporteList extends React.Component {
             <tr>
               <th scope="col">Fecha creacion</th>
               <th scope="col">Fecha de pago</th>
+              <th scope="col">Tipo</th>
               <th scope="col">Status</th>
               <th scope="col"></th>
             </tr>
@@ -27,7 +28,8 @@ class ReporteList extends React.Component {
             {this.props.todos.map(todo => (
               <tr key={todo.id}>
                 <td>{todo.createdAt}</td>
-                <td>{todo.fechaDePago}</td>
+                <td>{todo.paymentDate}</td>
+                <td>{todo.invoiceType}</td>
                 <td>{todo.status}</td>
                 <td>
                   <Link to='/facturas' onClick={() => setData(todo.id)}>

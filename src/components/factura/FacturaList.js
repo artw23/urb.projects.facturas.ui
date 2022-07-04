@@ -18,6 +18,7 @@ class FacturaList extends React.Component {
               <th scope="col">Condominio</th>
               <th scope="col">Numero</th>
               <th scope="col">Clave catastral</th>
+              <th scope="col">Operacionl</th>
               <th scope="col">cantidadInicial</th>
               <th scope="col">cantidadFinal</th>
               <th scope="col">Factura</th>
@@ -35,6 +36,7 @@ class FacturaList extends React.Component {
                 <td>{todo.condominio}</td>
                 <td>{todo.numero}</td>
                 <td>{todo.claveCatastral}</td>
+                <td>{todo.operacion}</td>
                 <td>{todo.cantidadInicial}</td>
                 <td>{todo.cantidadFinal}</td>
                 <td>{todo.nombreFactura}</td>

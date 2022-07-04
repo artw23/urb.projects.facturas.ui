@@ -10,7 +10,7 @@ const proxy = require("http-proxy-middleware");
 
 class ReportesContainer extends React.Component {
 
-  REPORTE_ENDPOINT = "/api/reporte?size=1000";
+  REPORTE_ENDPOINT = "/api/reports?size=1000";
 
   state = {
     todos: [],

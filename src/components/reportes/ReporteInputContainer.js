@@ -10,6 +10,7 @@ function ReporteInputContainer() {
 
     const [name, setName] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
+    const [invoiceType, setInvoiceType] = useState("");
 
     const changeHandler = (event) => {
 		setSelectedFile(event.target.files[0]);
@@ -19,13 +20,19 @@ function ReporteInputContainer() {
         
         event.preventDefault();
 
+        var invoiceHelper = invoiceType;
+        if(!invoiceHelper){
+            invoiceHelper = 'Predial'
+        }
+
         const formData = new FormData();
-        formData.append("fecha_de_pago", name);
+        formData.append("payment_date", name);
         formData.append("file", selectedFile);
+        formData.append("invoice_type", invoiceHelper);
 
         axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
-        axios.post('/api/reporte', formData)
+        axios.post('/api/reports', formData)
           .then((response) => {
               history.push('/')
           });
@@ -50,6 +57,12 @@ function ReporteInputContainer() {
                                 onChange={(e) => setName(e.target.value)}
                             />
                             <small className="form-text text-muted">Formato 2015-12-23</small>
+                        </div>
+                        <div className="form-group">
+                            <select class="form-select" aria-label="Default select example" onChange={(e) => setInvoiceType(e.target.value)}>
+                                <option value="Predial">Predial</option>
+                                <option value="Diversos">Diversos</option>
+                            </select>
                         </div>
                         <div className="form-group">
                             <input type="file" name="file" onChange={changeHandler} />
