@@ -1,15 +1,15 @@
-# Build step
-FROM node:13.12.0-alpine as build
+#Stage 1
+
+FROM node:10-alpine as build-step
+RUN mkdir /app
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm ci --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-COPY . ./
+COPY package.json /app
+RUN npm install
+COPY . /app
 RUN npm run build
 
 
-# production environment
-FROM nginx:stable-alpine
-COPY --from=build /app/build /usr/share/nginx/html
+# Stage 2
+
+FROM nginx:1.17.1-alpine
+COPY --from=build-step /app/build /usr/share/nginx/html
