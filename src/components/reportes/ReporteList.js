@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from 'react-router-dom';
-import axios, {AxiosRequestConfig} from 'axios'
+import axios from 'axios'
 
 class ReporteList extends React.Component {
 

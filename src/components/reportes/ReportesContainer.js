@@ -3,9 +3,7 @@ import ReporteList from "./ReporteList"
 import { v4 as uuidv4 } from "uuid"
 import { Route } from "react-router-dom"
 import { Link } from 'react-router-dom';
-import axios, { AxiosRequestConfig } from 'axios'
-
-const proxy = require("http-proxy-middleware");
+import axios from 'axios'
 
 
 class ReportesContainer extends React.Component {

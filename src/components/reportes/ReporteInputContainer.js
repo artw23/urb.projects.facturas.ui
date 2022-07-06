@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom"
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios, {AxiosRequestConfig} from 'axios'
+import axios from 'axios'
 
 
 function ReporteInputContainer() {

@@ -1,7 +1,7 @@
 import FacturaList from "./FacturaList"
 import { Route } from "react-router-dom"
 import React from 'react';
-import axios, {AxiosRequestConfig} from 'axios'
+import axios from 'axios'
 
 class FacturasContainer extends React.Component {
 
@@ -33,12 +33,6 @@ class FacturasContainer extends React.Component {
   }
 
   runExport = title => {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    };
-
-    var id = localStorage.getItem('ID')
 
     axios.post("/api/reports/" + localStorage.getItem('ID') + "/process", {
       headers: {
