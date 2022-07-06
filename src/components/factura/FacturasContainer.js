@@ -8,15 +8,11 @@ class FacturasContainer extends React.Component {
   
   state = {
     todos: [],
-    hrefLink: ""
+    hrefLink: process.env.REACT_APP_BACKEND_URL + '/api/reports/' + localStorage.getItem('ID') + '/download',
+    hrefLink2: process.env.REACT_APP_BACKEND_URL + '/api/reports/' + localStorage.getItem('ID') + '/reciepts'
   }
 
   componentDidMount() {
-    var id = localStorage.getItem('ID')
-
-    this.state.hrefLink = process.env.REACT_APP_BACKEND_URL + '/api/reports/' + id + '/download'
-
-    this.state.hrefLink2 = process.env.REACT_APP_BACKEND_URL + '/api/reports/' + id + '/reciepts'
 
     axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
